@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/historial_navigation"
+    app:startDestination="@id/historialFragment">
+
+    <fragment
+        android:id="@+id/historialFragment"
+        android:name="com.us.skyguardian.translock.main.historial.historialFragment"
+        android:label="Historial"
+        tools:layout="@layout/fragment_historial" />
+</navigation>

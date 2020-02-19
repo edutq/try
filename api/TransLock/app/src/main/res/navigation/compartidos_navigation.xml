@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/compartidos_navigation"
+    app:startDestination="@id/compartidosFragment">
+
+    <fragment
+        android:id="@+id/compartidosFragment"
+        android:name="com.us.skyguardian.translock.main.compartidos.compartidosFragment"
+        android:label="Candados Compatidos"
+        tools:layout="@layout/fragment_compartidos">
+        <action
+            android:id="@+id/action_compartidosFragment_to_usuariosCompartidosFragment"
+            app:destination="@id/usuariosCompartidosFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_compartidosFragment_to_compartirCandadoFragment"
+            app:destination="@+id/compartirCandadoFragment"
+            app:enterAnim="@anim/slide_up"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popExitAnim="@anim/slide_down" />
+    </fragment>
+    <fragment
+        android:id="@+id/usuariosCompartidosFragment"
+        android:name="com.us.skyguardian.translock.main.compartidos.usuariosCompartidos.usuariosCompartidosFragment"
+        android:label="Usuarios Compartidos"
+        tools:layout="@layout/fragment_usuarios_compartidos">
+        <action
+            android:id="@+id/action_usuariosCompartidosFragment_to_compartirCandadoFragment"
+            app:destination="@id/compartirCandadoFragment"
+            app:enterAnim="@anim/slide_up"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popExitAnim="@anim/slide_down" />
+        <action
+            android:id="@+id/action_usuariosCompartidosFragment_to_usuarioFragment"
+            app:destination="@id/usuarioFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+    <fragment
+        android:id="@+id/compartirCandadoFragment"
+        android:name="com.us.skyguardian.translock.main.compartidos.compartirCandado.compartirCandadoFragment"
+        android:label="Compartir Candado"
+        tools:layout="@layout/fragment_compartir_candado" />
+    <fragment
+        android:id="@+id/usuarioFragment"
+        android:name="com.us.skyguardian.translock.main.compartidos.usuariosCompartidos.usuarioView.usuarioFragment"
+        android:label="Vista Usuarios"
+        tools:layout="@layout/fragment_usuario">
+        <action
+            android:id="@+id/action_usuarioFragment_to_horarioFragment"
+            app:destination="@id/horarioFragment"
+            app:enterAnim="@anim/slide_up"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popExitAnim="@anim/slide_down" />
+    </fragment>
+    <fragment
+        android:id="@+id/horarioFragment"
+        android:name="com.us.skyguardian.translock.main.compartidos.usuariosCompartidos.usuarioView.horario.horarioFragment"
+        android:label="Asignar Horario"
+        tools:layout="@layout/fragment_horario" />
+</navigation>

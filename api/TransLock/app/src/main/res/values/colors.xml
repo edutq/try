@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#00E4FF</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="ColorSecundary">#006AFF</color>
+    <color name="backgroundTarjetas">#EFF4F7</color>
+    <color name="textoBasico">#006AFF</color>
+    <color name="textoSecundario">#3664AD</color>
+    <color name="textoTitulos">#FFF</color>
+    <color name="backgroundGris">#eee</color>
+    <color name="silver_mist">#EFF4F7</color>
+    <color name="gris">#8B8B8B</color>
+    <color name="rojo">#D40F16</color>
+</resources>

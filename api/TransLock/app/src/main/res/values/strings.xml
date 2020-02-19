@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">TransLock</string>
+    <string name="title_candados">Candados</string>
+    <string name="title_compartidos">Compartidos</string>
+    <string name="title_configuracion">Configuración</string>
+    <string name="title_historial">Historial</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_login">Sign in</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+
+    <string name="error_texto_telefono">PROPORCIONE SU TELÉFONO</string>
+    <string name="error_texto_nombre">PROPORCIONE SU NOMBRE</string>
+    <string name="error_texto_nombre_caracteres">SU NOMBRE NO DEBE SER MAYOR 30 CARACTERES</string>
+    <string name="error_texto_apellido">PROPORCIONE SU APELLIDO</string>
+    <string name="error_texto_apellido_caracteres">SU APELLIDO NO DEBE SER MAYOR 30 CARACTERES</string>
+    <string name="error_texto_password">PROPORCIONE LA CONTRASEÑA</string>
+    <string name="error_texto_confirmar_password">PROPORCIONE LA CONFIRMACIÓN DE LA CONTRASEÑA</string>
+    <string name="error_texto_coincidir_password">LAS CONTRASEÑAS NO COINCIDEN</string>
+    <string name="error_texto_telefono_digitos">EL TELÉFONO DEBE SER DE 10 DÍGITOS</string>
+    <string name="error_texto_imei">PROPORCIONE EL IMEI</string>
+    <string name="error_texto_imei_digitos">EL IMIE NO DEBE SER MAYOR DE 15 DÍGITOS</string>
+
+    <!-- MARCAS CANDADOS -->
+    <string name="HARBORLOCK">2</string>
+    <string name="JOINTECH">1</string>
+    <string name="TRANSLOCK">3</string>
+    <string name="ip">http://192.169.213.91:3000/</string>
+
+</resources>

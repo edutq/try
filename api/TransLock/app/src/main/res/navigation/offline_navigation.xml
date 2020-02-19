@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/offline_navigation"
+    app:startDestination="@id/offlineCandadosFragment">
+
+    <fragment
+        android:id="@+id/offlineCandadosFragment"
+        android:name="com.us.skyguardian.translock.offline.OfflineCandados.OfflineCandadosFragment"
+        android:label="Modo Desconectado"
+        tools:layout="@layout/fragment_offline_candados">
+        <action
+            android:id="@+id/action_offlineCandadosFragment_to_offlineCandadoViewFragment"
+            app:destination="@id/offlineCandadoViewFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/offlineCandadoViewFragment"
+        android:name="com.us.skyguardian.translock.offline.OfflineCandados.OfflineCandadoView.OfflineCandadoViewFragment"
+        android:label="Modo Desconectado"
+        tools:layout="@layout/fragment_offline_candado_view" />
+</navigation>

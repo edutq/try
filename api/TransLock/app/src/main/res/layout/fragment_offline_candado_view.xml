@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".main.candados.candadoView.candadoViewFragment">
+
+    <androidx.cardview.widget.CardView
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tarjeta_configuracion_candado_offline"
+        android:layout_marginTop="@dimen/margin_vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginLeft="@dimen/margin_lateral"
+        android:layout_marginRight="@dimen/margin_lateral"
+        app:cardCornerRadius="2dp"
+        app:cardBackgroundColor="@color/backgroundTarjetas">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/altura_candado"
+                android:orientation="horizontal"
+                android:weightSum="100">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/lock"
+                    android:layout_weight="30"
+                    android:layout_marginStart="20dp"
+                    android:layout_margin="5dp"/>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="70"
+                    android:orientation="vertical"
+
+                    android:gravity="center">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Nombre"
+                            android:layout_marginStart="5dp"
+                            android:textSize="14sp"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            android:id="@+id/label_nombre_offline"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
+                            app:layout_constraintRight_toRightOf="parent"
+                            android:text="Candado 1"
+                            android:textColor="@android:color/black"
+                            android:layout_marginEnd="5dp"
+                            android:id="@+id/nombre_vista_candado_offline"/>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Identificador"
+                            android:layout_marginStart="5dp"
+                            android:layout_gravity="left"
+                            android:id="@+id/label_identificador_offline"
+                            android:textSize="14sp"
+                            app:layout_constraintLeft_toLeftOf="parent"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Desconectado"
+                            android:gravity="right"
+                            android:textColor="@android:color/black"
+                            android:layout_marginEnd="5dp"
+                            android:id="@+id/identificador_offline"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Condicion"
+                            android:layout_marginStart="5dp"
+                            android:layout_gravity="left"
+                            android:id="@+id/label_condicion_offline"
+                            android:textSize="14sp"
+                            app:layout_constraintLeft_toLeftOf="parent"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Desconectado"
+                            android:gravity="right"
+                            android:textColor="@android:color/black"
+                            android:layout_marginEnd="5dp"
+                            android:id="@+id/estado_candado_offline"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:visibility="gone"
+                            android:id="@+id/marca_candado_seleccionado_offline"/>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:id="@+id/tarjeta_permisos_candado_offline"
+        android:layout_marginTop="@dimen/margin_vertical"
+        android:layout_marginBottom="@dimen/margin_vertical"
+        app:layout_constraintTop_toBottomOf="@+id/tarjeta_configuracion_candado_offline"
+        app:layout_constraintBottom_toTopOf="@+id/button_cerrar_candado_offline"
+        android:layout_marginLeft="@dimen/margin_lateral"
+        android:layout_marginRight="@dimen/margin_lateral"
+        app:cardCornerRadius="2dp"
+        android:visibility="gone"
+
+        app:cardBackgroundColor="@color/backgroundTarjetas">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+
+            android:gravity="center">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                android:text="Permisos"
+                android:textColor="@color/textoBasico"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:layout_marginTop="12dp"
+                android:id="@+id/label_permisos_offline"
+                android:layout_marginBottom="12dp"/>
+            <View style="@style/Divider"
+                android:id="@+id/divider_agregar_permiso_offline"
+                app:layout_constraintBottom_toTopOf="@+id/lista_permisos_candado_offline"/>
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/lista_permisos_candado_offline"
+
+                app:layout_constraintTop_toBottomOf="@+id/label_permisos_offline"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    </androidx.cardview.widget.CardView>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Cerrar"
+        app:layout_constraintBottom_toTopOf="@id/button_abrir_candado_offline"
+        android:background="@drawable/gradient"
+        android:textColor="@color/textoTitulos"
+        android:visibility="gone"
+        android:layout_marginBottom="20dp"
+        android:id="@+id/button_cerrar_candado_offline"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Abrir"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@drawable/gradient"
+        android:textColor="@color/textoTitulos"
+
+        android:id="@+id/button_abrir_candado_offline"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

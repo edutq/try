@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/configuracion_navigation"
+    app:startDestination="@id/configuracionFragment">
+    <fragment
+        android:id="@+id/configuracionFragment"
+        android:name="com.us.skyguardian.translock.main.configuracion.ConfiguracionFragment"
+        android:label="Configuraciones"
+        tools:layout="@layout/fragment_configuracion">
+        <action
+            android:id="@+id/action_configuracionFragment_to_cambiarPasswordFragment"
+            app:destination="@id/cambiarPasswordFragment"
+            app:enterAnim="@anim/slide_up"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popExitAnim="@anim/slide_down" />
+        <action
+            android:id="@+id/action_configuracionFragment_to_cambiarNombreFragment"
+            app:destination="@id/cambiarNombreFragment"
+            app:enterAnim="@anim/slide_up"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popExitAnim="@anim/slide_down" />
+    </fragment>
+    <fragment
+        android:id="@+id/cambiarPasswordFragment"
+        android:name="com.us.skyguardian.translock.main.configuracion.cambiar.cambiarPasswordFragment"
+        android:label="Modificar Contraseña"
+        tools:layout="@layout/fragment_cambiar_password" />
+    <fragment
+        android:id="@+id/cambiarNombreFragment"
+        android:name="com.us.skyguardian.translock.main.configuracion.cambiar.cambiarNombreFragment"
+        android:label="Modificar Nombre"
+        tools:layout="@layout/fragment_cambiar_nombre" />
+</navigation>

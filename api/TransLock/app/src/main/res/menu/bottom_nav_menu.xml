@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_candados"
+        android:icon="@drawable/candado"
+        android:title="@string/title_candados"
+        android:iconTint="@color/colorPrimary" />
+
+    <item
+        android:id="@+id/navigation_compartidos"
+        android:icon="@drawable/compartir"
+        android:title="@string/title_compartidos"
+        android:iconTint="@color/colorPrimary"/>
+
+    <item
+        android:id="@+id/navigation_historial"
+        android:icon="@drawable/history"
+        android:title="@string/title_historial"
+        android:iconTint="@color/colorPrimary"/>
+
+    <item
+        android:id="@+id/navigation_configuracion"
+        android:icon="@drawable/configuracion"
+        android:title="@string/title_configuracion"
+        android:iconTint="@color/colorPrimary"/>
+
+</menu>

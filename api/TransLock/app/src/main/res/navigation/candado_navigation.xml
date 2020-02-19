@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/candado_navigation"
+    app:startDestination="@id/candadosFragment">
+
+    <fragment
+        android:id="@+id/candadosFragment"
+        android:name="com.us.skyguardian.translock.main.candados.CandadosFragment"
+        android:label="Candados"
+        tools:layout="@layout/fragment_candados">
+        <action
+            android:id="@+id/action_candadosFragment_to_candadoViewFragment"
+            app:destination="@id/candadoViewFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/candadoViewFragment"
+        android:name="com.us.skyguardian.translock.main.candados.candadoView.candadoViewFragment"
+        android:label="Vista Candado"
+        tools:layout="@layout/fragment_candadoview" >
+        <action
+            android:id="@+id/action_candadoViewFragment_to_cambiarNombreCandadoFragment"
+            app:destination="@id/cambiarNombreCandadoFragment"
+            app:enterAnim="@anim/slide_up"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/slide_down" />
+    </fragment>
+    <fragment
+        android:id="@+id/cambiarNombreCandadoFragment"
+        android:name="com.us.skyguardian.translock.main.candados.candadoView.cambiarNombreCandadoFragment"
+        android:label="Modificar Candado"
+        tools:layout="@layout/fragment_cambiar_nombre_candado" />
+</navigation>

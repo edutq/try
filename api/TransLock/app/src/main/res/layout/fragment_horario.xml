@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".main.compartidos.usuariosCompartidos.usuarioView.horario.horarioFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@android:color/white"
+        android:id="@+id/panel_de"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_gravity="center"
+        android:onClick="calendario"
+        tools:ignore="OnClick">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="De:"
+            android:layout_marginStart="20dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:gravity="center"
+            android:id="@+id/textview_de_horario"
+            android:textColor="@color/textoSecundario"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:layout_marginStart="20dp"
+            android:id="@+id/fecha_de_horario"
+            android:gravity="center"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/textview_de_horario"
+            android:textColor="@color/textoBasico"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:layout_marginStart="20dp"
+            android:id="@+id/hora_de_horario"
+            android:gravity="center"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/fecha_de_horario"
+            android:textColor="@color/textoBasico"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/flecha"
+            android:layout_marginEnd="25dp"
+            app:layout_constraintRight_toRightOf="parent"
+
+            android:tint="@color/gris"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View style="@style/Divider"
+        android:id="@+id/divider_horario"
+        app:layout_constraintTop_toBottomOf="@+id/panel_de"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@android:color/white"
+        android:id="@+id/panel_a"
+        app:layout_constraintTop_toBottomOf="@+id/divider_horario"
+        android:layout_gravity="center"
+        android:onClick="calendario"
+        tools:ignore="OnClick">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="A: "
+            android:layout_marginStart="20dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:gravity="center"
+            android:id="@+id/textview_a_horario"
+            android:textColor="@color/textoSecundario"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:layout_marginStart="20dp"
+            android:id="@+id/fecha_a_horario"
+            android:gravity="center"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/textview_a_horario"
+            android:textColor="@color/textoBasico"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:layout_marginStart="20dp"
+            android:gravity="center"
+            android:id="@+id/hora_a_horario"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/fecha_a_horario"
+            android:textColor="@color/textoBasico"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/flecha"
+            android:layout_marginEnd="25dp"
+            app:layout_constraintRight_toRightOf="parent"
+
+            android:tint="@color/gris"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/backgroundGris"
+        app:layout_constraintTop_toBottomOf="@+id/panel_a"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/gradient"
+        android:text="Guardar"
+        android:id="@+id/guardar_permiso"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

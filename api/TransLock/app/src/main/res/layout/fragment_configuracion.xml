@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:orientation="horizontal"
+        android:weightSum="100"
+        android:background="@android:color/white"
+        android:id="@+id/panel_configuracion_usuario"
+        app:layout_constraintTop_toTopOf="parent">
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="20dp"
+            android:src="@drawable/user"
+            android:layout_weight="30"/>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="70"
+            android:orientation="vertical"
+
+            android:gravity="center">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:onClick="cambiarNombre"
+
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nombre Usuario"
+                    android:id="@+id/nombre_usuario_configuracion"
+                    android:layout_gravity="center"
+                    android:textSize="18sp"/>
+
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/fotoeditar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="15dp"
+                        android:background="@drawable/circular_button"
+
+                        android:paddingVertical="4dp"
+                        android:src="@drawable/edit"/>
+
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="442-458-8186"
+                android:layout_gravity="left"
+                android:id="@+id/telefono_configuracion"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:text="Personal"
+        android:id="@+id/label_personal"
+        android:paddingStart="20dp"
+        app:layout_constraintTop_toBottomOf="@+id/panel_configuracion_usuario"
+        android:textColor="@color/textoBasico"
+        android:background="@color/silver_mist"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@android:color/white"
+        android:id="@+id/panel_cambiar_password"
+        app:layout_constraintTop_toBottomOf="@+id/label_personal"
+        android:layout_gravity="center"
+        android:onClick="cambiarPassword">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Cambiar Contraseña"
+            android:layout_marginStart="20dp"
+
+            android:gravity="center"
+            android:textColor="@color/textoSecundario"/>
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/flecha"
+            android:layout_marginEnd="25dp"
+            android:layout_alignParentRight="true"
+
+            android:tint="@color/gris"/>
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:text="Notificaciones"
+        app:layout_constraintTop_toBottomOf="@+id/panel_cambiar_password"
+        android:id="@+id/label_notificaciones"
+        android:paddingStart="20dp"
+        android:textColor="@color/textoBasico"
+        android:background="@color/silver_mist"/>
+
+    <Switch
+        android:id="@+id/switch_notificaciones"
+        app:layout_constraintTop_toBottomOf="@+id/label_notificaciones"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Notificaciones"
+        android:background="@android:color/white"
+        android:textColor="@color/textoSecundario"
+        android:paddingStart="20dp"
+        android:paddingEnd="10dp"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:id="@+id/listado"
+        android:background="@android:color/white"
+        app:layout_constraintTop_toBottomOf="@+id/switch_notificaciones"
+        app:layout_constraintBottom_toTopOf="@+id/boton_cerrar_sesion"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Cerrar Sesión"
+        android:id="@+id/boton_cerrar_sesion"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@drawable/gradient"
+        android:textColor="@color/textoTitulos"
+        android:onClick="cerrarSesion"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

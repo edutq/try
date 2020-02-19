@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/backgroundGris"
+    tools:context=".main.compartidos.compartirCandado.compartirCandadoFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@android:color/white"
+        android:id="@+id/panel_candado_a_compartir"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_gravity="center"
+        android:onClick="buscarCandado"
+        tools:ignore="OnClick">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Candado:"
+            android:layout_marginStart="20dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:gravity="center"
+            android:id="@+id/textview_candado_a_compartir"
+            android:textColor="@color/textoSecundario"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:layout_marginStart="20dp"
+            android:id="@+id/nombre_candado_a_compartir"
+            android:gravity="center"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/textview_candado_a_compartir"
+            android:textColor="@color/textoBasico"/>
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/flecha"
+            android:layout_marginEnd="25dp"
+            app:layout_constraintRight_toRightOf="parent"
+
+            android:tint="@color/gris"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <View style="@style/Divider"
+        android:id="@+id/divider_compartir"
+        app:layout_constraintTop_toBottomOf="@+id/panel_candado_a_compartir"/>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/altura_tarjetas"
+        android:orientation="horizontal"
+        android:weightSum="100"
+        android:visibility="gone"
+        android:gravity="center_vertical"
+        android:id="@+id/candado_seleccionado"
+        android:background="@color/silver_mist"
+        app:layout_constraintTop_toBottomOf="@+id/divider_compartir">
+
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="0dp"
+            android:layout_weight="20"
+            android:layout_marginStart="5dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/lock"
+            android:padding="5dp"
+            android:id="@+id/foto_candado_seleccionado"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/nombre_candado_seleccionado"
+            android:layout_marginStart="10dp"
+            android:textColor="@color/textoBasico"
+            android:layout_weight="80"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/id_candado_seleccionado"
+            android:layout_marginStart="10dp"
+            android:visibility="gone"
+            android:textColor="@color/textoBasico"
+            android:layout_weight="80"/>
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@android:color/white"
+        android:id="@+id/panel_compartir_con"
+        app:layout_constraintTop_toBottomOf="@+id/candado_seleccionado"
+        android:layout_gravity="center"
+        android:onClick="buscarUsuario"
+        tools:ignore="OnClick">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Con: "
+            android:layout_marginStart="20dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:gravity="center"
+            android:id="@+id/textview_compartir_con"
+            android:textColor="@color/textoSecundario"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:layout_marginStart="20dp"
+            android:id="@+id/nombre_compartir_con"
+            android:gravity="center"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/textview_compartir_con"
+            android:textColor="@color/textoBasico"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/flecha"
+            android:layout_marginEnd="25dp"
+            app:layout_constraintRight_toRightOf="parent"
+
+            android:tint="@color/gris"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View style="@style/Divider"
+        android:id="@+id/divider_compartir_con"
+        app:layout_constraintTop_toBottomOf="@+id/panel_compartir_con"/>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/altura_tarjetas"
+        android:visibility="gone"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/divider_compartir_con"
+        android:weightSum="100"
+        android:background="@color/silver_mist"
+        android:id="@+id/usuario_seleccionado">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+
+            android:layout_width="0dp"
+            android:layout_weight="20"
+            android:layout_marginStart="5dp"
+            android:src="@drawable/user"
+            android:padding="@dimen/margin"
+            android:layout_height="wrap_content"
+            android:id="@+id/foto_usuario_seleccionado"/>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="40"
+            android:orientation="vertical"
+            android:gravity="center_vertical"
+            android:layout_marginStart="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/nombre_usuario_seleccionado"
+
+
+                android:textColor="@color/textoBasico"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/telefono_usuario_seleccionado"
+                android:textColor="@color/textoBasico"
+                />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/id_usuario_seleccionado"
+                android:layout_marginStart="10dp"
+                android:visibility="gone"
+                android:textColor="@color/textoBasico"
+                android:layout_weight="80"/>
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="40"
+            android:gravity="center">
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Administrador "
+                android:id="@+id/switch_administrador_usuario_seleccionado"
+                android:textColor="@color/textoBasico"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/gradient"
+        android:text="Compartir"
+        android:id="@+id/compartir_candado"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,269 @@
+-- MySQL dump 10.13  Distrib 5.7.23, for Linux (x86_64)
+--
+-- Host: localhost    Database: translock
+-- ------------------------------------------------------
+-- Server version	5.7.23-0ubuntu0.18.04.1
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `candado`
+--
+
+DROP TABLE IF EXISTS `candado`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `candado` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(30) NOT NULL,
+  `alias` varchar(30) DEFAULT NULL,
+  `dueno` int(11) DEFAULT NULL,
+  `imei` varchar(15) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `nombre_UNIQUE` (`nombre`),
+  UNIQUE KEY `imei_UNIQUE` (`imei`),
+  KEY `dueno` (`dueno`),
+  CONSTRAINT `candado_ibfk_1` FOREIGN KEY (`dueno`) REFERENCES `usuario` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `candado`
+--
+
+LOCK TABLES `candado` WRITE;
+/*!40000 ALTER TABLE `candado` DISABLE KEYS */;
+INSERT INTO `candado` VALUES (1,'candadito 1','candado Pato',39,'123'),(2,'candadito 2','candado Diego',40,'12345'),(3,'candadito 3','candado Eduardo',38,'1234');
+/*!40000 ALTER TABLE `candado` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `candado_usuario`
+--
+
+DROP TABLE IF EXISTS `candado_usuario`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `candado_usuario` (
+  `id_usuario` int(11) DEFAULT NULL,
+  `id_candado` int(11) DEFAULT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id_usuario` (`id_usuario`,`id_candado`),
+  KEY `id_candado` (`id_candado`),
+  CONSTRAINT `candado_usuario_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id`),
+  CONSTRAINT `candado_usuario_ibfk_2` FOREIGN KEY (`id_candado`) REFERENCES `candado` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `candado_usuario`
+--
+
+LOCK TABLES `candado_usuario` WRITE;
+/*!40000 ALTER TABLE `candado_usuario` DISABLE KEYS */;
+INSERT INTO `candado_usuario` VALUES (38,1,4),(38,3,3),(39,1,1),(39,3,5),(40,2,2),(40,3,6);
+/*!40000 ALTER TABLE `candado_usuario` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `permisos_de_apertura`
+--
+
+DROP TABLE IF EXISTS `permisos_de_apertura`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `permisos_de_apertura` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `fecha_inicio` datetime DEFAULT NULL,
+  `fecha_fin` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `permisos_de_apertura`
+--
+
+LOCK TABLES `permisos_de_apertura` WRITE;
+/*!40000 ALTER TABLE `permisos_de_apertura` DISABLE KEYS */;
+/*!40000 ALTER TABLE `permisos_de_apertura` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `permisos_de_rol`
+--
+
+DROP TABLE IF EXISTS `permisos_de_rol`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `permisos_de_rol` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(15) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `permisos_de_rol`
+--
+
+LOCK TABLES `permisos_de_rol` WRITE;
+/*!40000 ALTER TABLE `permisos_de_rol` DISABLE KEYS */;
+/*!40000 ALTER TABLE `permisos_de_rol` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `permisos_rol`
+--
+
+DROP TABLE IF EXISTS `permisos_rol`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `permisos_rol` (
+  `id_permiso` int(11) DEFAULT NULL,
+  `id_rol` int(11) DEFAULT NULL,
+  KEY `id_permiso` (`id_permiso`),
+  KEY `id_rol` (`id_rol`),
+  CONSTRAINT `permisos_rol_ibfk_1` FOREIGN KEY (`id_permiso`) REFERENCES `permisos_de_rol` (`id`),
+  CONSTRAINT `permisos_rol_ibfk_2` FOREIGN KEY (`id_rol`) REFERENCES `rol` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `permisos_rol`
+--
+
+LOCK TABLES `permisos_rol` WRITE;
+/*!40000 ALTER TABLE `permisos_rol` DISABLE KEYS */;
+/*!40000 ALTER TABLE `permisos_rol` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `permisos_usuario_candado`
+--
+
+DROP TABLE IF EXISTS `permisos_usuario_candado`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `permisos_usuario_candado` (
+  `id_permiso` int(11) DEFAULT NULL,
+  `id_usuario_candado` int(11) DEFAULT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id_permiso` (`id_permiso`,`id_usuario_candado`),
+  KEY `id_usuario_candado` (`id_usuario_candado`),
+  CONSTRAINT `permisos_usuario_candado_ibfk_1` FOREIGN KEY (`id_permiso`) REFERENCES `permisos_de_apertura` (`id`),
+  CONSTRAINT `permisos_usuario_candado_ibfk_2` FOREIGN KEY (`id_usuario_candado`) REFERENCES `candado_usuario` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `permisos_usuario_candado`
+--
+
+LOCK TABLES `permisos_usuario_candado` WRITE;
+/*!40000 ALTER TABLE `permisos_usuario_candado` DISABLE KEYS */;
+/*!40000 ALTER TABLE `permisos_usuario_candado` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `rol`
+--
+
+DROP TABLE IF EXISTS `rol`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `rol` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(15) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `rol`
+--
+
+LOCK TABLES `rol` WRITE;
+/*!40000 ALTER TABLE `rol` DISABLE KEYS */;
+INSERT INTO `rol` VALUES (1,'Super Usuario'),(2,'Usuario Base');
+/*!40000 ALTER TABLE `rol` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `sessions`
+--
+
+DROP TABLE IF EXISTS `sessions`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `sessions` (
+  `session_id` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
+  `expires` int(11) unsigned NOT NULL,
+  `data` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin,
+  PRIMARY KEY (`session_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `sessions`
+--
+
+LOCK TABLES `sessions` WRITE;
+/*!40000 ALTER TABLE `sessions` DISABLE KEYS */;
+INSERT INTO `sessions` VALUES ('3SHxrIDDAxnLBL3l-Mq_6RAg_n26FW-P',1580249387,'{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"httpOnly\":true,\"path\":\"/\"},\"passport\":{\"user\":\"4424588186\"}}'),('7RJhamhlrh8rBmCmwbGAwsE4FjwzzFWe',1580250150,'{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"httpOnly\":true,\"path\":\"/\"},\"passport\":{\"user\":\"4424588186\"}}'),('UkT2XoYGRk8w3eweB-PMJtIb9TSOZcRp',1580238545,'{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"httpOnly\":true,\"path\":\"/\"},\"passport\":{\"user\":\"4421203652\"}}'),('aCY8xecgijqmExANYxyH9Pi-xPLhSM9Y',1580240321,'{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"httpOnly\":true,\"path\":\"/\"},\"passport\":{\"user\":\"4421203652\"}}'),('iVx9L2f9TYjFw3zaAl6u87v8snd3EOF1',1580179644,'{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"httpOnly\":true,\"path\":\"/\"},\"passport\":{\"user\":\"4424588186\"}}'),('kh4074GHcePUnjztNqZIhGvmiBQvEh5m',1580179009,'{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"httpOnly\":true,\"path\":\"/\"},\"passport\":{\"user\":\"4424588186\"}}');
+/*!40000 ALTER TABLE `sessions` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `usuario`
+--
+
+DROP TABLE IF EXISTS `usuario`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `usuario` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `telefono` varchar(10) NOT NULL,
+  `rol` int(11) DEFAULT '2',
+  `nombre` varchar(30) DEFAULT NULL,
+  `apellido` varchar(30) NOT NULL,
+  `password` varchar(255) DEFAULT NULL,
+  `activo` tinyint(1) DEFAULT '0',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `numero` (`telefono`),
+  KEY `usuario_ibfk_1` (`rol`),
+  CONSTRAINT `usuario_ibfk_1` FOREIGN KEY (`rol`) REFERENCES `rol` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `usuario`
+--
+
+LOCK TABLES `usuario` WRITE;
+/*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
+INSERT INTO `usuario` VALUES (22,'4434588186',2,'ed','tab','$2b$10$jFdojsm6ZPDwl8tUaNfg1eIfwVVqlxXfU6ttuwEpdVL9DnRB7M7ae',1),(23,'4444588186',2,'e','t','$2b$10$UxRI6t41KHMVfL3MPn1U5.Rdl8F9p1ApxHZwkYaAlx6vvAPnwgOby',0),(38,'4424588186',2,'e','t','$2b$10$f1wUqvWxw3z56UW3Y2nAz.b0BbWg0Zb0dLSd65q.JFxrTw/cnrr8S',1),(39,'4421203652',2,'Francisco','Benitez','$2b$10$RT4HZqYMy/jHMWkGidGzb.hy5wVomJ1SNxlFmoyCI4Im9x8D1py3G',1),(40,'4425996654',2,'diego','dominguez','$2b$10$8n3THFu4DhISAfxKvX1b8ul3Ge9cnA4ClqOBh/gum3YiYHfQQ4gzW',1);
+/*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2020-02-02 18:56:50

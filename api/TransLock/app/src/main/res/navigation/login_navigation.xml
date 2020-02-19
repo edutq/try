@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/login_navigation"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.us.skyguardian.translock.login.LoginFragment"
+        android:label="Login"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_loginFragment_to_registrarFragment"
+            app:destination="@id/registrarFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            />
+        <action
+            android:id="@+id/action_loginFragment_to_numeroFragment"
+            app:destination="@id/numeroFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_loginFragment_to_codigoFragment"
+            app:destination="@id/codigoFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+    <fragment
+        android:id="@+id/registrarFragment"
+        android:name="com.us.skyguardian.translock.login.RegistrarFragment"
+        android:label="fragment_registrar"
+        tools:layout="@layout/fragment_registrar">
+        <action
+            android:id="@+id/action_registrarFragment_to_codigoFragment"
+            app:destination="@id/codigoFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpTo="@id/loginFragment"/>
+    </fragment>
+    <fragment
+        android:id="@+id/recuperarPasswordFragment"
+        android:name="com.us.skyguardian.translock.login.RecuperarPasswordFragment"
+        android:label="fragment_recuperar_password"
+        tools:layout="@layout/fragment_recuperar_password" />
+    <fragment
+        android:id="@+id/codigoFragment"
+        android:name="com.us.skyguardian.translock.login.codigoFragment"
+        android:label="fragment_codigo"
+        tools:layout="@layout/fragment_codigo" >
+        <action
+            android:id="@+id/action_codigoFragment_to_recuperarPasswordFragment"
+            app:destination="@id/recuperarPasswordFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpTo="@+id/numeroFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/numeroFragment"
+        android:name="com.us.skyguardian.translock.login.numeroFragment"
+        android:label="fragment_numero"
+        tools:layout="@layout/fragment_numero" >
+        <action
+            android:id="@+id/action_numeroFragment_to_codigoFragment"
+            app:destination="@id/codigoFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+
+</navigation>

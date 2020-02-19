@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.cardview.widget.CardView
+        android:onClick="verCompartidos"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/altura_tarjetas"
+        android:layout_marginTop="@dimen/margin_vertical"
+        android:layout_marginLeft="@dimen/margin_lateral"
+        android:layout_marginRight="@dimen/margin_lateral"
+        app:cardCornerRadius="5dp"
+        app:cardBackgroundColor="@color/backgroundTarjetas">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="100">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="20">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/lock"
+                    android:layout_margin="5dp"
+                    android:id="@+id/foto_candado"/>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="50"
+                android:layout_gravity="center_vertical"
+                android:gravity="center">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="CANDADO 1"
+                    android:layout_marginStart="10dp"
+                    android:gravity="center_vertical"
+                    android:id="@+id/nombre_candado_compartido"
+                    android:textColor="@color/textoBasico"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="identificador"
+                    android:id="@+id/identificador_candado_compartido"
+                    android:gravity="center_vertical"
+                    android:layout_marginStart="10dp"
+                    android:textColor="@color/textoBasico">
+
+                </androidx.appcompat.widget.AppCompatTextView>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:visibility="gone"
+                    android:id="@+id/id_candado_compartido"
+
+                    />
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:visibility="gone"
+                    android:id="@+id/imei_candado_compartido"
+
+                    />
+
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="30"
+                android:orientation="vertical"
+                android:gravity="center">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="5"
+
+                    android:id="@+id/cantidad_candado_compartido"
+                    android:gravity="center"
+                    android:textColor="@color/textoBasico"
+                    android:textSize="25dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="usuarios compartidos"
+                    android:textSize="10dp"
+                    android:textColor="@color/textoBasico"
+                    android:gravity="center"
+                    app:layout_constraintTop_toBottomOf="@id/cantidad_candado_compartido"/>
+
+            </LinearLayout>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>
